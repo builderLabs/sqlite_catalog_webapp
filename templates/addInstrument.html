@@ -1,0 +1,121 @@
+{% extends "main.html" %}
+
+{% block head %}
+<head>
+   {{ super() }}   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>   
+</head>
+
+{% endblock %}
+
+{% block banner %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+    <div >
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <strong class = "flash_deleted"> {{ message }} </strong>
+        {% endfor %}        
+      {% endif %}
+    {% endwith %}
+    </div>
+
+   <hr>
+   <div class="row">
+      <h2 class="col-xs-4 col-sm-4 col-md-4 item_classification_heading">New Item Classification:</h2>      
+      <a href="{{url_for('addInstrument')}}" class="col-md-1 newitem_reset"><input type='submit' value='Reset Form'</input></a>      
+      <h2 class="col-xs-4 col-sm-4 col-md4 item_description">Description:</h2>
+   </div>
+
+   <form action="{{ url_for('addInstrumentPost')}}" method= 'post' class='newitem_form'>
+   <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 required">
+         <div class="row classification">            
+            <select name='category' class="col-xs-3 col-sm-3 col-md-3 category_select" onchange="filterSubcategory();">               
+               <option selected disabled hidden>*{{selected_cat}}</option>               
+               {% for cat in categories %}
+                  <option value={{cat.id}}>{{cat.name}}</option>
+               {% endfor %}
+            </select>                             
+            <input type="text" name = 'category_custom' class="col-xs-3 col-sm-3 col-md-3 category_custom" value="{{category_custom}}" placeholder="Add Category">
+            <input type="hidden" name="selected_category" value="{{selected_cat_id}}">            
+            <p class="reset_msg">{{reset_msg}}</p>
+         </div>
+         <script>            
+               function filterSubcategory(){                  
+                  window.location.href = "/addinstrument/" + $(".category_select :selected").text();
+               }
+         </script>     
+         <div class="row classification">         
+            <select name='subcategory' class="col-xs-3 col-sm-3 col-md-3 subcategory_select">               
+               {% if instrument_id is not defined %}
+                  <option selected disabled>*{{selected_subcat}}</option>               
+               {% else %}
+                  <option selected>{{selected_subcat}}</option>
+               {% endif %}
+               {% for subcat in subcategories %}
+                  <option value={{subcat.id}}>{{subcat.name}}</option>
+               {% endfor %}
+            </select>                  
+            <input type="text" name = 'subcategory_custom' class="col-xs-3 col-sm-3 col-md-3 subcategory_custom" value="{{subcategory_custom}}" placeholder="Add Subcategory">
+         </div>   
+         <div class="row classification">
+            <select name='brand' class="col-xs-3 col-sm-3 col-md-3 brand_select">
+               {% if instrument_id is not defined %}
+                  <option selected disabled hidden>*{{selected_brand}}</option>
+               {% else %}
+                  <option selected>{{selected_brand}}</option>
+               {% endif %}
+               {% for brand in brands %}
+                  <option value={{brand.id}}>{{brand.name}}</option>
+               {% endfor %}
+            </select>                  
+            <input type="text" name = 'brand_custom' class="col-xs-3 col-sm-3 col-md-3 brand_custom" value="{{brand_custom}}" placeholder="Add Brand">
+         </div>   
+         <div class="row classification">
+            <span class="col-xs-3 col-sm-3 col-md-3 model_name">Make/Model:</span>            
+            <input typsube="text" name = 'model' class="col-xs-3 col-sm-3 col-md-3 model_input" value="{{model}}" placeholder="Model (optional)">
+         </div>         
+         <div class="row">
+            <h2 class="add_condition">*Indicate Condition:</h2>
+              <input type="radio" name="condition" value="New">New
+              <input type="radio" name="condition" value="Used">Used
+         </div>
+
+         <br>
+
+         </div>
+
+         <div class="col-xs-6 col-sm-6 col-md-6 optional">
+            <textarea name='description' class="description" placeholder="Optional (Max 250 chars)">{{description}}</textarea>
+         </div>
+         <div class="row">
+            <h2 class="price_label">Price:</h2>
+            <input type="text" name = 'price' class="price" placeholder="(Optional)" value="{{price}}">
+         </div>
+
+         </div>
+
+         <div class = "row">
+            <input type='submit' value="Add Instrument" class="add_instrument"><span class="add_error">{{adderror}}</span>
+            <span class="reqMsg">(* Required)</span>
+         </div>
+         <hr>              
+
+   </form>
+   <br>
+
+   <div class="row cancel_add">
+      <a href="{{url_for('showMain')}}" class="cancel_add"><input type='submit' value='CANCEL'</input></a>
+   </div>
+
+{% endblock %}

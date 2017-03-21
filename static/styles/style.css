@@ -1,0 +1,198 @@
+* {
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+}
+
+body {
+  background-image: url("dark-canvas.gif");
+}
+
+select {
+  color: black !important;
+  font-size: 2vw;
+  option {
+    color: green;
+  }
+}
+
+h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+}
+
+hr {
+  background-color: #7d97ad;
+  height: 2px;
+}
+
+.back_to_main {
+  font-size: 1vw;
+}
+
+.banner {
+  background-color: #7d97ad;
+  margin-top: 1vmax;
+}
+
+.buy {
+  font-size: 4vw;
+}
+
+.brand_table {
+  font-size: 2vw;
+}
+
+.brand_listing {
+  font-size: 4vw;
+}
+
+.brand_view {
+  font-size: 1vw;
+}
+
+.category_listing {
+  font-size: 4vw;
+}
+
+.category_view {
+  font-size: 1vw;
+}
+
+.descriptor {
+  font-weight: bold;
+}
+
+.flash_main {
+  color: red;
+  font-size: 1vw;
+}
+
+.greeting {
+  color: black;  
+  font-size: 4vw;
+  font-weight: bold;
+  padding-left: 1vw;
+  text-decoration: none;
+}
+
+.greeting:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.greeting:active {
+  color: black;
+  text-decoration: none;
+}
+
+.info_name,.info_brand,.info_cond,.info_des,
+.info_type,.info_model,.info_price, 
+.info_submittedby, .infolink {
+  font-weight: bold;
+  font-size: 1vw;
+}
+
+.info_inst_name,.info_inst_brand,.info_inst_cond,.info_inst_des,
+.info_inst_type,.info_inst_model,.info_inst_price, 
+.info_inst_submittedby, .info_inst_more {
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+.info_more {
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+.info_name {
+  font-size: 2vw;
+}
+
+.inst_value, .info_inst_des_text {
+  font-weight: normal;
+}
+
+.instrument_listing {
+  font-size: 1vw;
+}
+
+.login_icons {
+  padding-top: 1vmin;
+  text-align: left;
+}
+
+.login_panel {
+  padding-top: 1vw;
+  text-align: right;
+}
+
+.inv_msg {
+  padding-top: 1vw;
+}
+
+.login_control {
+  font-size: 2vmax;
+  font-weight: bold;
+  padding-right: 1vw;
+}
+
+.info_type {
+	text-transform: capitalize;
+}
+
+.info_des_text {
+  font-weight: normal;
+  margin-left: 2vw;
+	text-align: justify;
+}
+
+.instrDivider {
+  background-color: gray;
+  height: 1px;
+}
+
+.item_value {
+  font-weight: normal;
+  font-size: 1vw;
+  padding-left: 1vw;
+}
+
+.logged_name {
+  font-size: 1vw;
+}
+
+.logged_status {
+  font-size: 2vmin;
+  padding-left: 1vw;
+}
+
+.login_msg {
+  font-weight: bold;
+}
+
+.main_table {
+  margin-bottom: 1vmin;
+  margin-top: 1vmin;
+  display: inline-block;
+  font-size: 2vw;
+}
+
+.maincat, .mainbrand {
+	font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+	text-transform: uppercase;
+}
+
+.show_area {
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2;
+  height: 20vw;
+  width: 60vmin;
+}

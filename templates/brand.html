@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% block banner %}
+   {{ super() }}
+{% endblock %}
+
+{% block header %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+   <hr>
+   <div class="brand_listing" >
+       {% for inst in stock %}
+          <li class="info_type">Type: <span class="item_value">{{inst[1]}}</span></li>
+          <li class="info_model">Model: <span class="item_value">{{inst[3]}}</span></li>
+          <li class="info_cond">Condition: <span class="item_value">{{inst[4]}}</span></li>
+          <li class="infolink"><a href="{{url_for('instrument',instrument_id= inst[2])}}">more...</a></li>
+          <hr class="instrDivider">
+       {% endfor %}
+   </div>
+   <hr>
+
+    <a href="/thegarage" class="back_to_main"><input type='submit' value="Main"></a>
+
+{% endblock %}

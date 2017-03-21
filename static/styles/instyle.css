@@ -1,0 +1,370 @@
+* {
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+  background-image: url("dark-canvas.gif");
+}
+
+button {
+  color: black;
+}
+
+h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+}
+
+hr {
+  background-color: #7d97ad;
+  height: 2px;
+}
+
+input[type="radio"] {
+  margin: 0 1vw 0 1vw;
+}
+
+select {
+  align-items: left;
+  color: red;
+  font-size: 1vmax;
+  height: 3vmin;
+  margin-left: 1vmin;
+  width: 14vmin;
+}
+
+select option {
+  color: black;
+}
+
+select option[data-default] {
+  color: #888;
+}
+
+.add_condition, .edit_condition {
+  margin-left: 1vw;
+  text-decoration: underline;
+}
+
+.add_error {
+  color:red;    
+  font-size: 1.5vw;
+  margin-left: 1vw;
+}
+
+.add_instrument, .edit_instrument {
+  color: blue;
+  font-weight: bold;
+  margin-left: 1vw;
+}
+
+.add_item {
+  color: red;
+  font-size: 1vw;
+  font-weight: bold;
+  padding-right: 1vw;
+  text-decoration: underline;
+  text-align: right;
+}
+
+.back_to_main {
+  font-size: 1vw;
+}
+
+.banner {
+  background-color: #7d97ad;
+  margin-top: 1vmax;
+}
+
+.brand_table {
+  font-size: 2vw;
+}
+
+.brand_view {
+  font-size: 1vw;
+}
+
+.buy {
+  color: green;
+  font-family: tahoma;
+  font-size: 2vw;
+}
+
+.cancel_add,
+.cancel_edit {
+  color: red;
+  font-weight: bold;
+  font-size: 2.5vh;
+  margin-left: 1vmin;
+  padding-top: 0;
+}
+
+.category_custom,
+.subcategory_custom,
+.brand_custom,
+.model_input {
+  color: black;
+  margin-left: 1vw;
+  height: 3vmin;
+  width: 10vw;
+}
+
+.category_select,
+.subcategory_select,
+.brand_select {
+  color: black;
+  margin-left: 1vw;
+  padding: 0;  
+}
+
+.category_view {
+  font-size: 1vw;
+}
+
+.classification {
+  margin-top: 1vw;
+  margin-left;
+}
+
+.delete_cancel {
+  color: blue;
+  font-weight: bold;
+  font-size: 1vw;
+  float: left;
+  margin-left: 1vmax;
+}
+
+.del_inst_name {
+  color: red;
+  font-weight: bold;
+}
+
+.delete_item, .delete_confirm {
+  color: red;
+  font-weight: bold;
+  font-size: 1vw;
+  float: left;
+  margin-left: 1vmax;
+}
+
+.del_main {
+  float:right;
+  font-size: 1vw;
+  padding-right: 4vmax;
+}
+
+.description {
+  color: black;
+  margin-top: 1vh;
+  height: 20vh;
+  width: 30vw;
+}
+
+.descriptor {
+  font-weight: bold;
+}
+
+.entry_footer {
+  margin-top: 1vmax;
+}
+
+.flash_added,
+.flash_edit,
+.flash_deleted,
+.flash_main {
+  color: red;
+  font-size: 1vw;
+}
+
+.greeting {
+  color: black;
+  font-weight: bold;
+  font-size: 4vw;
+  padding-left: 1vw;
+  text-decoration: none;
+}
+
+.greeting:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.greeting:active {
+  color: black;
+  text-decoration: none;
+}
+
+.hidden_cat {
+  color: black;
+}
+
+.hr_entry_footer {
+  height: 0.5px;
+  background-color: gray;
+}
+
+.info_name,.info_brand,.info_cond,.info_des,
+.info_type,.info_model,.info_price,
+.info_submittedby, .infolink {
+  font-weight: bold;
+  font-size: 1vw;
+}
+
+.info_inst_name,.info_inst_brand,.info_inst_cond,.info_inst_des,
+.info_inst_type,.info_inst_model,.info_inst_price,
+.info_inst_submittedby, .info_inst_more {
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+.info_name {
+  font-size: 2vw;
+}
+
+.info_type {
+  text-transform: capitalize;
+}
+
+.info_des_text {
+  font-weight: normal;
+  margin-left: 2vw;
+  text-align: justify;
+}
+
+.instrDivider {
+  background-color: gray;
+  height: 1px;
+}
+
+.inst_value, .info_inst_des_text {
+  font-weight: normal;
+}
+
+.instrument_listing {
+  font-size: 2vw;
+}
+
+.item_classification_heading {
+  text-decoration: underline;
+}
+
+.item_description {
+  margin-left: 2.5vw;
+  text-decoration: underline;
+}
+
+.item_value {
+  font-weight: normal;
+  font-size: 1vw;
+  padding-left: 1vw;
+}
+
+.inv_msg {
+  padding-top: 1vw;
+}
+
+.login_icons {
+  padding-top: 1vmin;
+  text-align: left;
+}
+
+.login_panel {
+  padding-top: 1vw;
+  text-align: right;
+}
+
+.login_control {
+  font-size: 2vmax;
+  font-weight: bold;
+  padding-right: 1vw;
+}
+
+.login_msg {
+  font-weight: bold;
+}
+
+.logged_name {
+  font-size: 1vw;
+}
+
+.logged_status {
+  font-size: 2vmin;
+  padding-left: 1vw;   
+}
+
+.maincat, .mainbrand {
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.main_table {
+  display: inline-block;
+  font-size: 2vw;
+  margin-top: 1vmin;
+  margin-bottom: 1vmin;
+}
+
+.model_input {
+  margin-left: 1vw;
+}
+
+.model_name {
+  background-color: white;
+  color: red;
+  font-size: 2.5vmin;
+  height: 1.5vw;
+  margin-left: 1vw;
+  text-align: right;
+}
+
+.newitem_form {
+  font-size: 1vmax;
+}
+
+.newitem_reset {
+  color: green;
+  font-size: 1vmax;
+  font-weight: bold;
+  margin-left: 2vw;
+  margin-top: 2.5vh;
+}
+
+.optional {
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 2vw;
+}
+
+.price_label {
+  text-decoration: underline;
+}
+
+.price {
+  color: black;
+}
+
+.reqMsg {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.reset_msg {
+  font-size: 16px;
+  text-align: center;
+}
+
+.show_area {
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2;
+  height: 20vw;
+  width: 60vmin;
+}

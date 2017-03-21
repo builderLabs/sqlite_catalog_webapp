@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+
+{% block banner %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+  <div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}        
+          {% for message in messages %}
+          <strong class="flash_edit"> {{ message }} </strong>
+          {% endfor %}
+      {% endif %}
+    {% endwith %}
+    </div>
+
+
+   <hr>
+   <div class="instrument_listing">
+      {% for item in info %}                  
+         <div class="row instrument_header">          
+          <span class="col-xs8 col-sm-8 col-md-9 info_inst_name">{{item[5]}} {{item[0]}}</span>
+          <a class="col-xs-2  col-sm-2 col-md-3 buy" href="{{url_for('purchase', instrument_id = instrument_id)}}"><input type='submit' value="Purchase"></a>
+         </div>
+         <li class="info_inst_type">Type: <span class="inst_value">{{item[4]}}</span></li>
+         <li class="info_inst_cond">Condition: <span class="inst_value">{{item[1]}}</span></li>
+         <li class="info_inst_des">Description:</br><span class="info_inst_des_text">{{item[2]}}</span></li>
+         <li class="info_inst_price">Price: <span class="inst_value">{{item[3]}}</span></li>
+         <li class="info_inst_submittedby">Submitted By: <span class="inst_value">{{item[6]}}</span></li>
+         <li class="edit_item"><a href="{{url_for('edit', instrument_id = instrument_id)}}">edit</a></li>         
+      {% endfor %}
+   </div>   
+   <div class="row entry_footer">            
+      <a class="delete_item" href="{{url_for('delete', instrument_id = instrument_id)}}"><input type='submit' value="Delete Item"></a>
+   </div>
+   <hr>
+
+   <a href="/thegarage" class="back_to_main"><input type='submit' value="Main"></a>
+
+{% endblock %}

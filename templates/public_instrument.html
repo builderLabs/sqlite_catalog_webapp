@@ -1,0 +1,30 @@
+{% extends "public_main.html" %}
+
+{% block banner %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+   <hr>
+   <div class="instrument_listing">
+      {% for item in info %}      
+         <span class="info_inst_name">{{item[5]}} {{item[0]}}</span>
+         <li class="info_inst_type">Type: <span class="inst_value">{{item[4]}}</span></li>
+         <li class="info_inst_cond">Condition: <span class="inst_value">{{item[1]}}</span></li>
+         <li class="info_inst_des">Description:</br><span class="info_inst_des_text">{{item[2]}}</span></li>
+         <li class="info_inst_price">Price: <span class="inst_value">{{item[3]}}</span></li>
+         <li class="info_inst_submittedby">Submitted By: <span class="inst_value">{{item[6]}}</span></li>         
+         <li class="info_inst_more"><a href="/login" >Login to purchase/edit listing...</a></li> 
+      {% endfor %}
+   </div>
+   <hr>
+
+   <a href="/thegarage" class="back_to_main"><input type='submit' value="Main"></a>
+
+{% endblock %}

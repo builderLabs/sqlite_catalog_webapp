@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  {% block head %}
+
+    <title>Catalog Project</title>
+      <link href="https://fonts.googleapis.com/css?family=Rajdhani:500,600,700" rel="stylesheet">
+      <link rel="stylesheet" type = "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+      <link rel="stylesheet" type = "text/css" href= "{{ url_for('static',filename='styles/instyle.css') }}">
+  
+  {% endblock %}
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    {% block banner %}
+
+    <div class="banner">
+      <a class="greeting" href="/">Welcome to the Instrument Garage!!</a>
+    </div>
+    
+    {% endblock %}
+
+    {% block header %}
+
+      <div class="row header">
+        <div class="col-xs-8 col-sm-8 col-md-9 inv_msg">          
+          <h2>{{menu_heading}}</h2>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-3 login_panel">
+          <a class = "login_control" href="/logout">LOGOUT</a>
+        </div>    
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-9 logged_status">
+          <span class="login_msg">logged in as: </span><span>{{username}}</span>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-3 add_item">
+          <a class = "add_item" href="{{url_for('addInstrument')}}">Add an Item</a>
+        </div>    
+      </div>
+
+    {% endblock %}
+
+    {% block content %}
+
+    <div >
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <strong class = "flash_main"> {{ message }} </strong>
+        {% endfor %}        
+      {% endif %}
+    {% endwith %}
+    </div>
+
+    <hr>
+    <table class="main_table">
+      {% for inv in totals %}
+        <tbody>
+          <tr><td><a class="maincat" href ="{{url_for('showCategory', category_id = inv[0]  )}}" >{{inv[1]}} </a><a>({{inv[2]}})</a></td></tr>
+        </tbody>
+      {% endfor %}
+    </table>
+    <hr>
+
+    <a href="/bybrand" class="brand_view"><input type='submit' value="View By Brand"></a>
+
+    <h2>Click on any of the headings above for more detail on our stock</h2>
+    
+    {% endblock %}
+  
+  </div>
+
+  <div class="footer">
+   {% block footer %}
+   
+   {% endblock %}
+  </div>
+  
+  </div>
+
+</body>
+
+</html>

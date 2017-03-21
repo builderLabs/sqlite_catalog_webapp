@@ -1,0 +1,117 @@
+{% extends "main.html" %}
+
+{% block head %}
+<head>
+   {{ super() }}   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>   
+</head>
+
+{% endblock %}
+
+{% block banner %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+    <div >
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <strong class = "flash_edited"> {{ message }} </strong>
+        {% endfor %}        
+      {% endif %}
+    {% endwith %}
+    </div>
+
+   <hr>
+   <div class="row">
+      <h2 class="col-xs-4 col-sm-4 col-md-4 item_classification_heading">Item Classification:</h2>      
+      <a href="{{url_for('edit', instrument_id = instrument_id)}}" class="col-md-1 newitem_reset"><input type='submit' value='Reset Data'</input></a>      
+      <h2 class="col-xs-4 col-sm-4 col-md4 item_description">Description:</h2>
+   </div>
+
+   <form action="{{ url_for('addInstrumentPost', instrument_id = instrument_id)}}" method= 'post' class='newitem_form'>       
+   <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 required">
+         <div class="row classification">            
+            <select name='category' class="col-xs-3 col-sm-3 col-md-3 category_select" onchange="filterSubcategory();">               
+               <option selected disabled hidden>{{selected_cat}}</option>               
+               {% for cat in categories %}
+                  <option value={{cat.id}}>{{cat.name}}</option>
+               {% endfor %}
+            </select>                             
+            <input type="text" name = 'category_custom' class="col-xs-3 col-sm-3 col-md-3 category_custom" value="{{category_custom}}" placeholder="Add Category">
+            <input type="hidden" name="selected_category" value="{{selected_cat_id}}">            
+            <p class="reset_msg">{{reset_msg}}</p>
+         </div>
+         <script>            
+               function filterSubcategory(){
+                  window.location.href = "/" + {{instrument_id}} + "/edit/" + $(".category_select :selected").text();
+               }
+         </script>     
+         <div class="row classification">
+            <select name='subcategory' class="col-xs-3 col-sm-3 col-md-3 subcategory_select">               
+               <option selected>{{selected_subcat}}</option>               
+               {% for subcat in subcategories %}
+                  <option value={{subcat.id}}>{{subcat.name}}</option>
+               {% endfor %}
+            </select>                  
+            <input type="text" name = 'subcategory_custom' class="col-xs-3 col-sm-3 col-md-3 subcategory_custom" value="{{subcategory_custom}}" placeholder="Add Subcategory">
+         </div>   
+         <div class="row classification">
+            <select name='brand' class="col-xs-3 col-sm-3 col-md-3 brand_select">
+               <option selected>{{selected_brand}}</option>
+               {% for brand in brands %}
+                  <option value={{brand.id}}>{{brand.name}}</option>
+               {% endfor %}
+            </select>                  
+            <input type="text" name = 'brand_custom' class="col-xs-3 col-sm-3 col-md-3 brand_custom" value="{{brand_custom}}" placeholder="Add Brand">
+         </div>   
+         <div class="row classification">
+            <span class="col-xs-3 col-sm-3 col-md-3 model_name">Make/Model:</span>            
+            <input typsube="text" name = 'model' class="col-xs-3 col-sm-3 col-md-3 model_input" value="{{model}}" placeholder="Model (optional)">
+         </div>         
+         <div class="row">
+            <h2 class="edit_condition">Indicate Condition:</h2>
+              {% if condition == "New" %}
+                <input type="radio" name="condition" value="New" checked>New
+                <input type="radio" name="condition" value="Used">Used
+              {% else %}
+                <input type="radio" name="condition" value="New">New
+                <input type="radio" name="condition" value="Used" checked>Used
+              {% endif %}
+         </div>
+
+         <br>
+
+         </div>
+
+         <div class="col-xs-6 col-sm-6 col-md-6 optional">
+            <textarea name='description' class="description" placeholder="Optional (Max 250 chars)">{{description}}</textarea>
+         </div>
+         <div class="row">
+            <h2 class="price_label">Price:</h2>
+            <input type="text" name = 'price' class="price" placeholder="(Optional)" value="{{price}}">
+         </div>
+
+         </div>
+
+         <div class = "row">
+            <input type='submit' value="Update Instrument" class="edit_instrument"><span class="edit_error">{{editerror}}</span>            
+         </div>
+         <hr>              
+
+   </form>
+   <br>
+
+   <div class="row cancel_edit">      
+      <a class="cancel_edit" href="{{url_for('instrument', instrument_id = instrument_id)}}"><input type='submit' value="CANCEL"></a>
+   </div>
+
+{% endblock %}

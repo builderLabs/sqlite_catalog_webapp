@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block head %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block header %}
+   {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+   <hr>
+   <div class="show_area">
+      <table class="brand_table">
+         {% for inv in totals %}
+            <tbody>
+               <tr><td><a class="mainbrand" href ="{{url_for('showBrand', brand_id = inv[0]  )}}" >{{inv[1][:10]}} </a><a>({{inv[2]}})</a></td></tr>
+            </tbody>
+         {% endfor %}
+      </table>
+   </div>
+   <hr>
+
+   <a href="/bycategory" class="category_view"><input type='submit' value="View By Category"></a>
+
+{% endblock %}
